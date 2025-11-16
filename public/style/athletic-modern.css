@@ -1,0 +1,810 @@
+/*
+ * Athletic Trainer - Modern Styling
+ * Modernized design with better UX and responsive layout
+ */
+
+/* ============================================
+   CSS Variables for Easy Theming
+   ============================================ */
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1e40af;
+    --primary-light: #3b82f6;
+    --secondary-color: #10b981;
+    --accent-color: #f59e0b;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --bg-light: #f9fafb;
+    --bg-white: #ffffff;
+    --border-color: #e5e7eb;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+#myNav {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0;
+}
+
+/* Mobile Menu Button */
+#siteMenu {
+    display: block;
+    padding: 1rem;
+}
+
+#siteMenu .btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+#siteMenu .btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+#siteMenu .dropdown-menu {
+    border: none;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    margin-top: 0.5rem;
+}
+
+#siteMenu .dropdown-menu li a {
+    padding: 0.75rem 1.5rem;
+    color: var(--text-dark);
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+#siteMenu .dropdown-menu li a:hover {
+    background-color: var(--primary-light);
+    color: white;
+    padding-left: 2rem;
+}
+
+/* Desktop Navigation */
+#inlineNav {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    #siteMenu {
+        display: none;
+    }
+    
+    #inlineNav {
+        display: block;
+        padding: 0;
+    }
+    
+    #inlineNav .nav-pills {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1rem;
+        margin: 0;
+    }
+    
+    #inlineNav .nav-pills li {
+        list-style: none;
+    }
+    
+    #inlineNav .nav-pills li a {
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        display: block;
+    }
+    
+    #inlineNav .nav-pills li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+    
+    #inlineNav .nav-pills li.active a,
+    #inlineNav .nav-pills li a:active {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* ============================================
+   Hero Section / Info Div
+   ============================================ */
+#infoDiv {
+    background-image: linear-gradient(rgba(37, 99, 235, 0.7), rgba(30, 64, 175, 0.8)), url('../images/athletic.JPG');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+#searchSection {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: var(--shadow-xl);
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+#headerWord {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+#headDetails {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Search Form */
+#searchSection form {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+#searchBox {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+#searchBox:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+#searchSection form button {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+#searchSection form button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+#searchSection form button:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   Content Sections
+   ============================================ */
+#wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.pageText {
+    background-color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    margin: 2rem 0;
+    line-height: 1.8;
+}
+
+#aboutUsNote {
+    background-color: var(--bg-white);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    margin: 2rem 0;
+}
+
+#description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+/* ============================================
+   Navigation Links / Breadcrumbs
+   ============================================ */
+#navigationLink {
+    padding: 1rem 2rem;
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    margin: 1rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+#navigationLink a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+#navigationLink a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+#navigationLink .glyphicon {
+    color: var(--text-light);
+    margin: 0 0.5rem;
+}
+
+/* ============================================
+   Results / Injury Display
+   ============================================ */
+#myInjuryResult {
+    background-color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    margin: 2rem 0;
+    min-height: 300px;
+}
+
+.injury-result {
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    background-color: var(--bg-light);
+    margin: 1rem 0;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.injury-result:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-md);
+}
+
+.injury-result a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.injury-result a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* ============================================
+   Diagnostic Section
+   ============================================ */
+#diagnosticBody {
+    background-color: var(--bg-light);
+}
+
+#bodyPart {
+    background-color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    margin: 2rem 0;
+}
+
+#bodyPart h5 {
+    color: var(--primary-dark);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+#bodyPart input[type="radio"] {
+    margin-right: 0.75rem;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+#bodyPart label {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: block;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+#bodyPart label:hover {
+    background-color: var(--bg-light);
+}
+
+#bodyPart button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+#bodyPart button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.diseaseSection > div {
+    background-color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    margin: 2rem 0;
+}
+
+.diseaseSection h4 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.diseaseSection p {
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   Contact Section
+   ============================================ */
+#contactBody {
+    background-image: linear-gradient(rgba(37, 99, 235, 0.85), rgba(30, 64, 175, 0.9)), url('../images/jumpman.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 4rem 2rem;
+    color: white;
+}
+
+#contactPage {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#contactPage h4 {
+    color: white;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+#contactForm {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-xl);
+}
+
+#contactForm label {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+#contactForm input[type="text"],
+#contactForm textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+#contactForm input[type="text"]:focus,
+#contactForm textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+#contactForm textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+#contactForm button {
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    margin-right: 1rem;
+}
+
+#contactForm button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+#runner {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+#runner img {
+    border-radius: 50%;
+    box-shadow: var(--shadow-xl);
+    border: 4px solid white;
+}
+
+/* ============================================
+   Image Trail
+   ============================================ */
+#imageTrail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.aboutImage {
+    width: calc(50% - 0.5rem);
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.aboutImage:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-xl);
+}
+
+@media screen and (min-width: 768px) {
+    .aboutImage {
+        width: calc(33.333% - 0.67rem);
+        height: 250px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .aboutImage {
+        width: calc(20% - 0.8rem);
+        height: 200px;
+    }
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.footer a {
+    color: white;
+    text-decoration: underline;
+    transition: var(--transition);
+}
+
+.footer a:hover {
+    color: var(--accent-color);
+}
+
+/* ============================================
+   Modals
+   ============================================ */
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: var(--shadow-xl);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    border-radius: 12px 12px 0 0;
+    padding: 1.5rem;
+}
+
+.modal-body {
+    padding: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.modal-footer .btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.modal-footer .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.white {
+    color: white !important;
+}
+
+.blackLink {
+    color: var(--text-dark) !important;
+    text-decoration: none;
+}
+
+.blackLink:hover {
+    color: var(--primary-color) !important;
+}
+
+.myBackground {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)), url('../images/outside.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.alternateBack {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)), url('../images/smiling.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+@media screen and (max-width: 600px) {
+    #headerWord {
+        font-size: 1.75rem;
+    }
+    
+    #headDetails {
+        font-size: 0.95rem;
+    }
+    
+    #searchSection {
+        padding: 2rem 1.5rem;
+    }
+    
+    #searchSection form {
+        flex-direction: column;
+    }
+    
+    #searchBox {
+        width: 100%;
+    }
+    
+    #searchSection form button {
+        width: 100%;
+    }
+    
+    #infoDiv {
+        min-height: 500px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #infoDiv {
+        min-height: 700px;
+    }
+    
+    #searchSection {
+        padding: 4rem 3rem;
+    }
+    
+    #headerWord {
+        font-size: 3rem;
+    }
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+    #myNav,
+    #searchSection form,
+    .footer {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+}
+
+
+/* ============================================
+   Diagnostic Info Sections (Anchors)
+   ============================================ */
+
+/* Hide all diagnostic info sections by default */
+#elbowInfo,
+#ankleInfo,
+#groinInfo,
+#kneeInfo,
+#thighsInfo {
+    display: none;
+}
+
+/* Show section when it's the target (accessed via anchor) */
+#elbowInfo:target,
+#ankleInfo:target,
+#groinInfo:target,
+#kneeInfo:target,
+#thighsInfo:target {
+    display: block !important;
+    background-color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    margin: 2rem auto;
+    max-width: 800px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Style for diagnostic info sections */
+#elbowInfo:target h4,
+#ankleInfo:target h4,
+#groinInfo:target h4,
+#kneeInfo:target h4,
+#thighsInfo:target h4 {
+    color: var(--primary-dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+#elbowInfo:target p,
+#ankleInfo:target p,
+#groinInfo:target p,
+#kneeInfo:target p,
+#thighsInfo:target p {
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+/* Back link styling */
+#elbowInfo:target a,
+#ankleInfo:target a,
+#groinInfo:target a,
+#kneeInfo:target a,
+#thighsInfo:target a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+#elbowInfo:target a:hover,
+#ankleInfo:target a:hover,
+#groinInfo:target a:hover,
+#kneeInfo:target a:hover,
+#thighsInfo:target a:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Hide other content when showing a specific section */
+body:has(#elbowInfo:target) #bodyPart,
+body:has(#ankleInfo:target) #bodyPart,
+body:has(#groinInfo:target) #bodyPart,
+body:has(#kneeInfo:target) #bodyPart,
+body:has(#thighsInfo:target) #bodyPart {
+    display: none;
+}
+
+/* Highlight the targeted section */
+#elbowInfo:target,
+#ankleInfo:target,
+#groinInfo:target,
+#kneeInfo:target,
+#thighsInfo:target {
+    border-left: 4px solid var(--primary-color);
+}

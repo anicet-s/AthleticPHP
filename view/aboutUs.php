@@ -1,4 +1,10 @@
-<?php $title = $title ?? 'About Us - Athletic Trainer'; ?>
+<?php 
+// Load bootstrap if not already loaded (for direct access)
+if (!function_exists('url')) {
+    require_once __DIR__ . '/../bootstrap.php';
+}
+$title = $title ?? 'About Us - Athletic Trainer'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,8 +12,8 @@
         <title><?= htmlspecialchars($title) ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link type="text/css" rel="stylesheet" href="<?= asset('style/athletic.css') ?>">
-        <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Pontano+Sans" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="<?= asset('style/athletic-modern.css') ?>">
+        <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap" rel="stylesheet">
     </head>
     <body class="container-fluid">
         <div id="wrapper">
