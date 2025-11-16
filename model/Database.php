@@ -13,17 +13,29 @@
  */
 class Database {
     public static function getDB(){
-        $username = 'athleticdb';  // Your username provided by instructor
-$password = 'Wg5K~amPK?9B';  // Your password provided by instructor
-  $dsn = "mysql:host=mysql3.gear.host;dbname=athleticdb";
-    try {
-    $db = new PDO($dsn, $username, $password);
-    return $db;
-   } 
-   catch (PDOException $e) {
-    $error_message = $e->getMessage();
-    include('../view/database_error.php');
-    exit();
-   }
- }
+        // DEPRECATED: Use src/Config/Database.php instead
+        // This file is kept for backward compatibility with old views
+        
+        // PostgreSQL connection
+        $host = 'localhost';
+        $port = '5432';
+        $dbname = 'athleticdb';
+        $username = 'postgres';  // Update with your PostgreSQL username
+        $password = 'your_password';  // Update with your PostgreSQL password
+        
+        $dsn = "pgsql:host={$host};port={$port};dbname={$dbname}";
+        
+        try {
+            $db = new PDO($dsn, $username, $password, [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            ]);
+            return $db;
+        } 
+        catch (PDOException $e) {
+            $error_message = $e->getMessage();
+            include('../view/database_error.php');
+            exit();
+        }
+    }
 }

@@ -1,43 +1,35 @@
+<?php $title = $title ?? 'About Us - Athletic Trainer'; ?>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
-<html>
+<html lang="en">
     <head>
-        <title>About Us</title>
-        <meta name="viewport" content="width = device-width, initial-scale = 1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-      <link type="text/css" rel="stylesheet" href="../style/athletic.css">
-      <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Pontano+Sans" rel="stylesheet">
-      <script src="../js/Athletic.js"></script>
+        <meta charset="UTF-8">
+        <title><?= htmlspecialchars($title) ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="<?= asset('style/athletic.css') ?>">
+        <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Pontano+Sans" rel="stylesheet">
     </head>
     <body class="container-fluid">
         <div id="wrapper">
         <div id="myNav">
-                               <div id= "siteMenu" class="dropdown">
-				  
-				   <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" ><span  class="glyphicon glyphicon-th-list"></span></button>
-					<ul class="dropdown-menu">
-                                            <li><a href="homePage.php">Home</a></li>
-                                            <li><a href="aboutUs.php">About </a></li>
-                                            <li><a href="Diagnostic.php">Diagnostic</a></li>
-                                            <li><a href="#contactBody">Contact </a></li>
-					</ul>
-                            
-				   
-				  </div>
-                                  <div id="inlineNav" >
-                                        <ul class="nav nav-pills">
-                                            <li><a href="homePage.php">Home</a></li>
-                                            <li><a  href="aboutUs.php" >About</a></li>
-                                            <li><a  href="Diagnostic.php">Diagnostic</a></li>
-                                            <li><a  href="#contactBody">Contact</a></li>                
-                                        </ul>
+            <div id="siteMenu" class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="<?= url('/') ?>">Home</a></li>
+                    <li><a href="<?= url('/about') ?>">About</a></li>
+                    <li><a href="<?= url('/diagnostic') ?>">Diagnostic</a></li>
+                    <li><a href="#contactBody">Contact</a></li>
+                </ul>
+            </div>
+            <div id="inlineNav">
+                <ul class="nav nav-pills">
+                    <li><a href="<?= url('/') ?>">Home</a></li>
+                    <li><a href="<?= url('/about') ?>">About</a></li>
+                    <li><a href="<?= url('/diagnostic') ?>">Diagnostic</a></li>
+                    <li><a href="#contactBody">Contact</a></li>
+                </ul>
                                   </div>
               </div>
          <div id="imageTrail">
@@ -79,14 +71,17 @@ and open the template in the editor.
              </form>
         </div>
           <div id="runner">
-               <img src="../images/uniqueRunner1.jpg" class="img-circle" id ="menuImage" style="width: 214px; height: 285px;">
+               <img src="<?= asset('images/uniqueRunner1.jpg') ?>" class="img-circle" id="menuImage" style="width: 214px; height: 285px;">
           </div>    
      </div>
         
-                <footer class="footer"><small><i>Copyright &copy; <?php echo date('Y')  ?> All rights reserved. The Athletic Trainer.<a href="mailto:webmaster@athletictrainer.com">
-                            webmaster@athletictrainer.com</i></small></footer>
+                <footer class="footer"><small><i>Copyright &copy; <?= date('Y') ?> All rights reserved. The Athletic Trainer.<a href="mailto:webmaster@athletictrainer.com">
+                            webmaster@athletictrainer.com</a></i></small></footer>
           
       </section>
-        
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script src="<?= asset('js/Athletic.js') ?>"></script>
     </body>
 </html>

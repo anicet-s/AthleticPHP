@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <!--The head section  -->
-        <title>Athletic Training Helper</title>
-    </head>
-    <body>
-        <main>
-            <h1>Database Error</h1>
-            <p>There was an error connecting to the database</p>
-            <p>The database must be installed correctly, and be running</p>
-            <p>Error message: <?php  echo $error_message;  ?></p>
-        </main>
-    </body>
-</html>
+<?php $title = 'Database Error'; ?>
+<?php require __DIR__ . '/partials/header.php'; ?>
+
+<?php require __DIR__ . '/partials/navigation.php'; ?>
+
+<div class="container" style="margin-top: 100px;">
+    <h1>Database Error</h1>
+    <p>There was an error connecting to the database.</p>
+    <p>Please try again later or contact support if the problem persists.</p>
+    <?php if (env('APP_DEBUG') === 'true' && isset($error_message)): ?>
+        <div class="alert alert-danger">
+            <strong>Debug Info:</strong> <?= htmlspecialchars($error_message) ?>
+        </div>
+    <?php endif; ?>
+    <a href="<?= url('/') ?>" class="btn btn-primary">Go to Home</a>
+</div>
+
+<?php require __DIR__ . '/partials/footer.php'; ?>

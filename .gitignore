@@ -45,3 +45,34 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# PHP
+/vendor/
+composer.lock
+.env
+.env.local
+.env.*.local
+
+# Logs
+/logs/*.log
+/logs/*.txt
+!/logs/.gitkeep
+
+# Cache
+/cache/*
+!/cache/.gitkeep
+
+# IDE
+/nbproject/
+/.vs/
+/.idea/
+*.swp
+*.swo
+*~
+.vscode/
+
+# Backup files
+*.bak
+*.backup
+*~
+backups/
